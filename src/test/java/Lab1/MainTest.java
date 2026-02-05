@@ -2,6 +2,8 @@ package Lab1;
 
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
+
+import java.util.List;
 import java.util.Random;
 
 public class MainTest {
@@ -32,12 +34,13 @@ public class MainTest {
         assertArrayEquals(expected, transposed);
     }
 
-//    @Test
-//    public void testMaxInColumn() {
-//        int[][] matrix = {{1, 5}, {4, 2}, {3, 7}};
-//        assertEquals(4, Main.maxValueInColums(matrix));
-//        assertEquals(7, Main.maxValueInColums(matrix));
-//    }
+    @Test
+    public void testMaxInColumn() {
+        int[][] matrix = {{1, 5}, {4, 2}, {3, 7}};
+        assertEquals(11, Main.maxValueInColums(matrix));
+        int[][] matrixEmpty = {};
+        assertEquals(0, Main.maxValueInColums(matrixEmpty));
+    }
 
     @Test
     public void testSquareMatrixTranspose() {
@@ -47,11 +50,11 @@ public class MainTest {
         assertArrayEquals(expected, transposed);
     }
 
-//    @Test
-//    public void testEmptyMatrix() {
-//        int[][] matrix = new int[0][0];
-//        int[][] transposed = Main.transposeMatrix(matrix);
-//        assertEquals(0, transposed.length);
-//    }
+    @Test
+    public void testEmptyMatrix() {
+        int[][] matrix = new int[0][0];
+        int[][] transposed = Main.transposeMatrix(matrix);
+        assertEquals(0, transposed.length);
+    }
 }
 

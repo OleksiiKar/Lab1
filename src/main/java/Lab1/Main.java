@@ -23,27 +23,38 @@ public class Main{
         return matrix;
     }
     public static int[][] transposeMatrix(int[][] matrix){
-        int row=matrix.length;
-        int col=matrix[0].length;
-        int[][] tMatrix = new int[col][row];
-        for (int i=0; i<col; i++){
-            for (int j=0; j<row; j++){
-                tMatrix[i][j]=matrix[j][i];
-            }
-        }
-        return tMatrix;
-    }
-    public static int maxValueInColums(int[][] matrix){
-        for (int i=0; i<matrix[0].length; i++) {
-            int max = Integer.MIN_VALUE;
-            for (int j = 0; j < matrix.length; j++) {
-                if (matrix[j][i] > max) {
-                    max = matrix[j][i];
+        if (matrix!=null && matrix.length>0 && matrix[0].length>0) {
+            int row = matrix.length;
+            int col = matrix[0].length;
+            int[][] tMatrix = new int[col][row];
+            for (int i = 0; i < col; i++) {
+                for (int j = 0; j < row; j++) {
+                    tMatrix[i][j] = matrix[j][i];
                 }
             }
-            System.out.printf("Max value %d column of Matrix C: %d\n", (i + 1), max);
+            return tMatrix;
         }
-        return 1;
+        else{
+            return new int[0][0];
+        }
+    }
+    public static int maxValueInColums(int[][] matrix){
+        if (matrix!=null && matrix.length>0 && matrix[0].length>0){
+            int sum=0;
+            for (int i=0; i<matrix[0].length; i++) {
+                int max = Integer.MIN_VALUE;
+                for (int j = 0; j < matrix.length; j++) {
+                    if (matrix[j][i] > max) {
+                        max = matrix[j][i];
+                    }
+                }
+                sum+=max;
+            }
+            return sum;
+        }
+        else{
+            return 0;
+        }
     }
     public static void main(String[] args) {
 
@@ -61,6 +72,6 @@ public class Main{
         System.out.println("Matrix C");
         printMatrix(matrixC);
 
-        maxValueInColums(matrixC);
+        System.out.printf("Sum of max values in columns of Matrix C: %d\n", maxValueInColums(matrixC));
     }
 }
