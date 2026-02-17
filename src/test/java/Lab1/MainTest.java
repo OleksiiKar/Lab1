@@ -17,7 +17,6 @@ public class MainTest {
 
     @Test
     public void testGenerateMatrixValues() {
-        Random rand = new Random(0);
         int[][] matrix = Main.generateMatrix(2, 2);
         for (int[] row : matrix) {
             for (int val : row) {
